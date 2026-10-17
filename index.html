@@ -1,458 +1,1083 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Dearest Phyo Thiri Khit (Bonnie) 💕</title>
-    <style>
-        :root {
-            --pink-bg: #ffe4e8;
-            --blue-bg: #e0f2fe;
-            --pink-accent: #f43f5e;
-            --blue-accent: #0284c7;
-            --text-dark: #334155;
-            --card-white: #ffffffd9;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe5f0">
+<title>For Bonnie ♡ Forever Yours</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
-        body {
-            background: linear-gradient(135deg, var(--pink-bg), var(--blue-bg));
-            color: var(--text-dark);
-            min-height: 100vh;
-            padding: 20px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<style>
+:root {
+  --pink: #ff8fbc;
+  --pink-light: #ffe5f0;
+  --blue: #b8e6ff;
+  --blue-light: #eaf7ff;
+  --purple: #d9c8ff;
+  --ink: #573c59;
+  --white: #fffafd;
+  --shadow: 0 12px 40px #b56c9920;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #fff5fa, #eff9ff, #fff0f7);
+  background-size: 250% 250%;
+  animation: backgroundShift 18s ease infinite;
+  overflow-x: hidden;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; cursor: pointer; }
+a { color: inherit; }
+h1, h2, h3 { font-family: "Playfair Display", serif; }
+p { line-height: 1.8; }
+button:focus-visible, a:focus-visible {
+  outline: 3px solid #bc78dd;
+  outline-offset: 4px;
+}
+@keyframes backgroundShift {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-13px) rotate(4deg); }
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes heartFloat {
+  0% { opacity: 0; transform: translateY(0) scale(.5) rotate(0); }
+  15% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-230px) scale(1.5) rotate(30deg); }
+}
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes openEnvelope {
+  to { transform: rotateX(180deg); }
+}
+@keyframes revealLetter {
+  from { opacity: 0; transform: translateY(16px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
-        .container {
-            max-width: 500px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+#hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+.heart-particle {
+  position: absolute;
+  bottom: 8%;
+  animation: heartFloat 3.5s ease-out forwards;
+  will-change: transform, opacity;
+}
 
-        .card {
-            background: var(--card-white);
-            backdrop-filter: blur(8px);
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            position: relative;
-            overflow: hidden;
-        }
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 6%;
+  background: #fffafdce;
+  border-bottom: 1px solid #ffffffb8;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-links a {
+  font-size: .82rem;
+  text-decoration: none;
+  transition: color .25s;
+}
+.nav-links a:hover { color: #e45e9a; }
+.menu-button {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+  color: var(--ink);
+}
 
-        h1 {
-            color: var(--pink-accent);
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
+section { padding: 75px 6%; }
+.container { max-width: 1000px; margin: auto; }
+.center { text-align: center; }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #ce6599;
+}
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 10px 0;
+}
+.section-subtitle {
+  max-width: 600px;
+  margin: 12px auto 35px;
+  color: #846e85;
+}
+.card {
+  background: #ffffffa8;
+  border: 1px solid #ffffffd9;
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 23px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(110deg, #ff8fbc, #bdabff, #ff8fbc);
+  background-size: 200% auto;
+  box-shadow: 0 7px 20px #dc82b633;
+  transition: transform .25s, box-shadow .25s, background-position .6s;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px #dc82b644;
+  background-position: right center;
+}
+.btn:active { transform: scale(.97); }
+.btn.secondary {
+  color: #795a86;
+  background: #ffffffc9;
+  border: 1px solid #f2d8ec;
+  box-shadow: none;
+}
+.btn.small { padding: 10px 17px; font-size: .88rem; }
 
-        h2 {
-            color: var(--blue-accent);
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
+.hero {
+  min-height: 88vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 65px 6%;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 800px;
+  animation: fadeUp 1.2s ease both;
+}
+.hero-heart {
+  font-size: 4.5rem;
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 15px #ff8fbc50);
+}
+.hero h1 {
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 1.05;
+  margin: 20px 0;
+  background: linear-gradient(120deg, #dc639e, #9b8be9, #5bb8d8);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.hero p { max-width: 600px; margin: 0 auto 26px; color: #826b86; }
+.hero-date {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 9px 16px;
+  background: #ffffffa8;
+  font-size: .85rem;
+  margin-bottom: 14px;
+}
+.decor {
+  position: absolute;
+  opacity: .5;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+.decor.one { top: 15%; left: 8%; font-size: 2rem; }
+.decor.two { top: 24%; right: 9%; font-size: 2.5rem; animation-delay: -2s; }
+.decor.three { bottom: 15%; left: 15%; font-size: 1.7rem; animation-delay: -3s; }
+.decor.four { bottom: 18%; right: 12%; font-size: 2rem; animation-delay: -1s; }
 
-        .subtitle {
-            font-size: 0.95rem;
-            color: #64748b;
-            margin-bottom: 15px;
-        }
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 25px;
+}
+.counter-item {
+  padding: 20px 8px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffe8f2, #e9f6ff);
+}
+.counter-item strong {
+  display: block;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  color: #d66c9f;
+}
+.counter-item span { font-size: .8rem; color: #866e87; }
+.anniversary-note { margin-top: 20px; font-size: .95rem; }
 
-        /* Counter */
-        .counter-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-top: 15px;
-        }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 17px;
+}
+.photo {
+  border: 0;
+  padding: 9px 9px 16px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  transform: rotate(var(--angle, 0deg));
+  transition: transform .35s, box-shadow .35s;
+}
+.photo:hover { transform: rotate(0) translateY(-8px) scale(1.025); box-shadow: 0 18px 35px #bd80a638; }
+.photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: block;
+  object-fit: cover;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #ffe5f0, #dff4ff);
+}
+.photo span { display: block; padding-top: 12px; font-family: "Playfair Display", serif; }
 
-        .counter-box {
-            background: #ffffff80;
-            padding: 10px 5px;
-            border-radius: 12px;
-            border: 1px solid #f1f5f9;
-        }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: none;
+  place-items: center;
+  padding: 20px;
+  background: #261629e8;
+  backdrop-filter: blur(12px);
+}
+.lightbox.show { display: grid; animation: fadeUp .25s ease; }
+.lightbox img { max-width: 92vw; max-height: 82vh; object-fit: contain; border-radius: 15px; }
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: white;
+  border: 0;
+  background: transparent;
+  font-size: 2.5rem;
+}
 
-        .counter-num {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--pink-accent);
-        }
+.love-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 25px;
+  align-items: center;
+}
+.envelope-wrap { text-align: center; padding: 25px 10px; }
+.envelope {
+  position: relative;
+  width: 190px;
+  height: 130px;
+  margin: 35px auto 24px;
+  background: #ffb9d4;
+  border-radius: 8px;
+  box-shadow: 0 14px 30px #e78eb633;
+}
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffcee1;
+  clip-path: polygon(0 0, 50% 58%, 100% 0);
+  z-index: 2;
+  transform-origin: top;
+  transition: transform .8s;
+}
+.envelope::after {
+  content: "♥";
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  font-size: 2rem;
+  color: #df6399;
+}
+.envelope.open::before { transform: rotateX(180deg); }
+.letter {
+  display: none;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+.letter.show { display: block; animation: revealLetter .7s ease both; }
+.signature { font-family: "Playfair Display", serif; font-size: 1.3rem; color: #cf6499; }
 
-        .counter-label {
-            font-size: 0.75rem;
-            color: #64748b;
-        }
+.quiz-question { font-size: 1.35rem; font-family: "Playfair Display", serif; }
+.quiz-options { display: grid; gap: 10px; margin: 22px 0; }
+.quiz-option {
+  padding: 14px 17px;
+  text-align: left;
+  border-radius: 15px;
+  border: 1px solid #efd5e8;
+  background: #fffafdf0;
+  color: var(--ink);
+  transition: background .2s, transform .2s, border-color .2s;
+}
+.quiz-option:hover { transform: translateX(4px); border-color: #ed9dc2; }
+.quiz-option.selected { background: #ffe1ee; border-color: #ec88b4; }
+.quiz-option.correct { background: #e0f7e9; border-color: #8dcba5; }
+.quiz-option.wrong { background: #fff0f1; border-color: #f2a0a7; }
+.quiz-progress { height: 7px; border-radius: 99px; background: #f3e2ef; overflow: hidden; margin: 20px 0; }
+.quiz-progress div { height: 100%; width: 0; background: linear-gradient(90deg, #ff8fbc, #9ccff6); transition: width .4s; }
+#quizFeedback { min-height: 28px; }
 
-        /* Photo Gallery */
-        .photo-gallery {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 12px;
+  max-width: 460px;
+  margin: 25px auto;
+}
+.memory-card {
+  aspect-ratio: 1;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  border: 1px solid #ffffff;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #ffe2ef, #dff2ff);
+  box-shadow: 0 5px 14px #b56c9915;
+  transition: transform .25s, background .25s;
+}
+.memory-card:hover { transform: translateY(-3px); }
+.memory-card.matched { background: #e0f7e9; }
+.memory-card:disabled { cursor: default; }
 
-        .photo-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            background: #fff;
-            padding: 8px;
-        }
+.music-list { display: grid; gap: 12px; }
+.song {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px;
+  border-radius: 18px;
+  background: #ffffffb9;
+  border: 1px solid #ffffff;
+  transition: transform .25s, background .25s;
+}
+.song:hover { transform: translateX(4px); background: #fff; }
+.song-icon {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #ffdbe9, #dff2ff);
+  font-size: 1.5rem;
+}
+.song-info { flex: 1; min-width: 0; }
+.song-info strong { display: block; }
+.song-info small { color: #927b94; }
+.song button { flex-shrink: 0; }
 
-        .photo-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            display: block;
-        }
+.surprise {
+  text-align: center;
+  background: linear-gradient(135deg, #ffe4f0dd, #dff3ffdd);
+}
+.surprise h2 { font-size: clamp(2rem, 6vw, 3.4rem); }
+.surprise-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 25px 0; }
+#surpriseMessage { min-height: 55px; font-size: 1.05rem; }
+footer { padding: 30px 6%; text-align: center; color: #977e99; font-size: .85rem; }
 
-        .photo-caption {
-            font-size: 0.88rem;
-            color: var(--pink-accent);
-            font-weight: 600;
-            margin-top: 8px;
-        }
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.delay1 { transition-delay: .1s; }
+.reveal.delay2 { transition-delay: .2s; }
 
-        /* Interactive Trick Buttons */
-        .trick-zone {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-            min-height: 80px;
-            position: relative;
-        }
-
-        .btn-yes {
-            background: var(--pink-accent);
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.2s ease, font-size 0.2s ease;
-            box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
-            z-index: 2;
-        }
-
-        .btn-no {
-            background: #94a3b8;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            z-index: 1;
-        }
-
-        /* Quiz */
-        .quiz-option {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            background: #ffffff;
-            border: 2px solid #bae6fd;
-            border-radius: 12px;
-            color: var(--text-dark);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .quiz-option:active {
-            transform: scale(0.98);
-        }
-
-        /* Memory Puzzle Game */
-        .puzzle-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .puzzle-card {
-            aspect-ratio: 1;
-            background: #bae6fd;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            user-select: none;
-            transition: transform 0.3s;
-        }
-
-        .puzzle-card.flipped {
-            background: #fff;
-            transform: rotateY(180deg);
-        }
-
-        /* Love Letter */
-        .letter {
-            text-align: left;
-            line-height: 1.6;
-            font-size: 0.98rem;
-            color: #334155;
-            white-space: pre-line;
-        }
-
-        /* Music Player */
-        .music-btn {
-            background: linear-gradient(135deg, var(--pink-accent), var(--blue-accent));
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-    </style>
+@media (max-width: 700px) {
+  .nav { padding: 12px 5%; }
+  .menu-button { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 18px;
+    flex-direction: column;
+    background: #fffafdF5;
+    border-bottom: 1px solid #f5dcec;
+  }
+  .nav-links.open { display: flex; }
+  section { padding: 58px 5%; }
+  .hero { min-height: 82vh; }
+  .counter-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+  .love-layout { grid-template-columns: 1fr; }
+  .card { padding: 21px; }
+  .decor.one { left: 3%; }
+  .decor.two { right: 3%; }
+}
+@media (max-width: 380px) {
+  .memory-grid { gap: 7px; }
+  .song { gap: 9px; padding: 10px; }
+  .song-icon { width: 40px; height: 40px; }
+  .song button { padding: 9px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
 </head>
+
 <body>
+<div id="hearts" aria-hidden="true"></div>
 
-    <div class="container">
-        <!-- Header -->
-        <div class="card">
-            <h1>For Phyo Thiri Khit 💕</h1>
-            <p class="subtitle">With all my love from Htet Wunna Aung (Dash)</p>
-            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">Fell in love on January 2, 2026</p>
-            
-            <button class="music-btn" onclick="toggleAudio()">
-                🎵 <span id="musicText">Play Romantic Music</span>
-            </button>
-            <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3"></audio>
+<nav class="nav">
+  <a class="logo" href="#home">Bonnie ♡ Forever</a>
+  <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#story">Our Story</a>
+    <a href="#memories">Memories</a>
+    <a href="#letter">Love Letter</a>
+    <a href="#quiz">Love Quiz</a>
+    <a href="#music">Our Songs</a>
+  </div>
+</nav>
 
-            <div class="counter-grid">
-                <div class="counter-box">
-                    <div class="counter-num" id="days">0</div>
-                    <div class="counter-label">Days</div>
-                </div>
-                <div class="counter-box">
-                    <div class="counter-num" id="hours">0</div>
-                    <div class="counter-label">Hours</div>
-                </div>
-                <div class="counter-box">
-                    <div class="counter-num" id="minutes">0</div>
-                    <div class="counter-label">Mins</div>
-                </div>
-                <div class="counter-box">
-                    <div class="counter-num" id="seconds">0</div>
-                    <div class="counter-label">Secs</div>
-                </div>
-            </div>
-        </div>
+<header class="hero" id="home">
+  <span class="decor one">♡</span>
+  <span class="decor two">✦</span>
+  <span class="decor three">🌷</span>
+  <span class="decor four">☁️</span>
+  <div class="hero-inner">
+    <div class="hero-heart">💗</div>
+    <div class="hero-date">Our story began on January 2, 2026</div>
+    <p class="eyebrow">A little corner of the universe, just for us</p>
+    <h1>For My Bonnie</h1>
+    <p>
+      Out of all the people in this world, somehow my heart found you.
+      This little website is a reminder that you are loved, appreciated,
+      and chosen — today and every day.
+    </p>
+    <button class="btn" onclick="enterOurWorld()">Open my heart ♡</button>
+  </div>
+</header>
 
-        <!-- Photo Gallery (Top 3 Photos First) -->
-        <div class="card">
-            <h2>Our Favorite Moments 📸</h2>
-            <div class="photo-gallery">
-                <div class="photo-card">
-                    <img src="IMG_3771.jpeg" alt="Cute Selfie">
-                    <div class="photo-caption">Matching Vibes ✨</div>
-                </div>
-                <div class="photo-card">
-                    <img src="IMG_3767.jpeg" alt="Special Memory">
-                    <div class="photo-caption">Adorable Moments Together 💕</div>
-                </div>
-                <div class="photo-card">
-                    <img src="IMG_3515.jpeg" alt="Holding You Close">
-                    <div class="photo-caption">Holding You Close ❤️</div>
-                </div>
-                <div class="photo-card">
-                    <img src="MYAILN49U477UA2UEE5J.jpeg" alt="SAY CHEESE Film Strip">
-                    <div class="photo-caption">SAY CHEESE Photostrip 📸</div>
-                </div>
-                <div class="photo-card">
-                    <img src="temp_image_4FFCFA75-C584-4146-A305-957EE27B1F45.jpeg" alt="Red Cap Filter">
-                    <div class="photo-caption">Matching Red Caps 🧢❤️</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trick Question (Forced Yes) -->
-        <div class="card">
-            <h2>Important Question! 💖</h2>
-            <p style="font-weight: 600; margin-top: 5px;">Do you promise to stay by my side forever?</p>
-            <div class="trick-zone">
-                <button class="btn-yes" id="yesBtn" onclick="agreeLove()">YES! 💕</button>
-                <button class="btn-no" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">No 😜</button>
-            </div>
-            <p id="trickMsg" style="color: var(--pink-accent); font-weight: bold; margin-top: 10px; display: none;"></p>
-        </div>
-
-        <!-- Interactive Love Quiz -->
-        <div class="card">
-            <h2>Love Quiz 💖</h2>
-            <p id="quizQuestion" style="margin-bottom: 12px; font-weight: 600;">What is my absolute favorite thing about you, Bonnie?</p>
-            <div id="quizOptions">
-                <button class="quiz-option" onclick="checkAnswer(true)">Your sweet personality & how amazingly you treat me 💕</button>
-                <button class="quiz-option" onclick="checkAnswer(false)">Your adorable smile 😊</button>
-                <button class="quiz-option" onclick="checkAnswer(false)">Everything about you ✨</button>
-            </div>
-            <p id="quizResult" style="margin-top: 10px; font-weight: bold; color: var(--pink-accent); display: none;"></p>
-        </div>
-
-        <!-- Matching Puzzle Mini Game -->
-        <div class="card">
-            <h2>Love Match Puzzle 🧩</h2>
-            <p class="subtitle">Match all the pairs for a secret message!</p>
-            <div class="puzzle-grid" id="puzzleBoard"></div>
-            <p id="puzzleWinMsg" style="margin-top: 15px; font-weight: bold; color: var(--pink-accent); display: none;">
-                🎉 Yay! You solved it! You hold the key to my heart forever, Phyo Thiri Khit! ❤️
-            </p>
-        </div>
-
-        <!-- Personal Love Letter -->
-        <div class="card">
-            <h2>My Letter To You 💌</h2>
-            <div class="letter">
-                Dearest Phyo Thiri Khit (Bonnie),
-
-                Ever since January 2, 2026, my life has been filled with so much happiness. Falling for you was the best thing that ever happened to me—not just because you are beautiful, but because of your gentle personality and the genuine, caring way you treat me every single day. 
-
-                You give me strength, motivation, and joy. Thank you for being my favorite person and for filling my life with love.
-
-                Forever yours,
-                Htet Wunna Aung (Dash)
-            </div>
-        </div>
+<main>
+<section id="story">
+  <div class="container center reveal">
+    <p class="eyebrow">Every second matters</p>
+    <h2 class="section-title">Time With You ♡</h2>
+    <p class="section-subtitle">
+      Since January 2, 2026, every day has been another page in our story.
+      And this is only the beginning.
+    </p>
+    <div class="card">
+      <div class="counter-grid" aria-live="off">
+        <div class="counter-item"><strong id="days">0</strong><span>Days</span></div>
+        <div class="counter-item"><strong id="hours">00</strong><span>Hours</span></div>
+        <div class="counter-item"><strong id="minutes">00</strong><span>Minutes</span></div>
+        <div class="counter-item"><strong id="seconds">00</strong><span>Seconds</span></div>
+      </div>
+      <p class="anniversary-note" id="anniversaryNote">Every moment with you is special. 💞</p>
     </div>
+  </div>
+</section>
 
-    <script>
-        // Anniversary Counter (Jan 2, 2026)
-        const startDate = new Date("2026-01-02T00:00:00");
+<section id="memories">
+  <div class="container">
+    <div class="center reveal">
+      <p class="eyebrow">Little moments, big feelings</p>
+      <h2 class="section-title">Our Memories 📸</h2>
+      <p class="section-subtitle">Add your favorite photos here and turn this page into our own little album.</p>
+    </div>
+    <div class="gallery">
+      <button class="photo reveal" style="--angle:-2deg" onclick="showPhoto(this)">
+        <img src="IMG_3771.jpeg" alt="Our memory one" loading="lazy" onerror="imageFallback(this)">
+        <span>My favorite person ♡</span>
+      </button>
+      <button class="photo reveal delay1" style="--angle:2deg" onclick="showPhoto(this)">
+        <img src="IMG_3767.jpeg" alt="Our memory two" loading="lazy" onerror="imageFallback(this)">
+        <span>A moment to keep</span>
+      </button>
+      <button class="photo reveal delay2" style="--angle:-1deg" onclick="showPhoto(this)">
+        <img src="IMG_3515.jpeg" alt="Our memory three" loading="lazy" onerror="imageFallback(this)">
+        <span>Us, always 💗</span>
+      </button>
+      <button class="photo reveal" style="--angle:2deg" onclick="showPhoto(this)">
+        <img src="MYAILN49U477UA2UEE5J.jpeg" alt="Our memory four" loading="lazy" onerror="imageFallback(this)">
+        <span>My happy place</span>
+      </button>
+      <button class="photo reveal delay1" style="--angle:-2deg" onclick="showPhoto(this)">
+        <img src="temp_image_4FFCFA75-C584-4146-A305-957EE27B1F45.jpeg" alt="Our memory five" loading="lazy" onerror="imageFallback(this)">
+        <span>One more forever</span>
+      </button>
+      <button class="photo reveal delay2" style="--angle:1deg" onclick="showPhoto(this)">
+        <img src="our-photo-6.jpg" alt="Add another couple photo" loading="lazy" onerror="imageFallback(this)">
+        <span>More memories to come</span>
+      </button>
+    </div>
+    <p class="center" style="font-size:.82rem;color:#927b94;margin-top:18px">
+      Replace the example image filenames with your own photos whenever you are ready.
+    </p>
+  </div>
+</section>
 
-        function updateCounter() {
-            const now = new Date();
-            const diff = now - startDate;
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="closePhoto()">
+  <button class="lightbox-close" aria-label="Close photo" onclick="closePhoto()">×</button>
+  <img id="lightboxImage" src="" alt="Expanded memory" onclick="event.stopPropagation()">
+</div>
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
+<section id="letter">
+  <div class="container">
+    <div class="center reveal">
+      <p class="eyebrow">Written with all my heart</p>
+      <h2 class="section-title">A Letter For You 💌</h2>
+      <p class="section-subtitle">Some feelings deserve more than a simple message.</p>
+    </div>
+    <div class="love-layout">
+      <div class="card envelope-wrap reveal">
+        <div class="envelope" id="envelope"></div>
+        <h3>A little letter, just for Bonnie</h3>
+        <p>Tap below to open it.</p>
+        <button class="btn" id="openLetterButton" onclick="toggleLetter()">Open my letter 💗</button>
+      </div>
+      <article class="card letter" id="loveLetter">
+        My dearest Bonnie,
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-        }
-        setInterval(updateCounter, 1000);
-        updateCounter();
+        Sometimes I wonder how I got so lucky to have you in my life.
+        You make ordinary moments feel special, and even a simple
+        conversation with you can become the best part of my day.
 
-        // Music Player Toggle
-        function toggleAudio() {
-            const music = document.getElementById("bgMusic");
-            const btnText = document.getElementById("musicText");
-            if (music.paused) {
-                music.play();
-                btnText.innerText = "Pause Music";
-            } else {
-                music.pause();
-                btnText.innerText = "Play Romantic Music";
-            }
-        }
+        Since January 2, 2026, we have had a date that belongs to our
+        story. I want us to keep making memories, laughing at silly
+        things, learning about each other, and standing beside one
+        another through both the easy days and the difficult ones.
 
-        // Trick No Button Logic
-        let noCount = 0;
-        function dodgeNo() {
-            const yesBtn = document.getElementById("yesBtn");
-            const noBtn = document.getElementById("noBtn");
-            
-            noCount++;
-            // Make YES bigger every time NO is attempted
-            let currentScale = 1 + (noCount * 0.25);
-            yesBtn.style.transform = `scale(${currentScale})`;
-            
-            // Move No button around randomly
-            const x = Math.random() * 120 - 60;
-            const y = Math.random() * 60 - 30;
-            noBtn.style.transform = `translate(${x}px, ${y}px)`;
-        }
+        I cannot promise that every day will be perfect. But I want
+        to keep choosing kindness, honesty, patience, and love.
+        I want you to feel safe being yourself with me, and I want
+        us to keep growing together without ever forgetting the
+        little things that made us fall in love.
 
-        function agreeLove() {
-            const msg = document.getElementById("trickMsg");
-            msg.style.display = "block";
-            msg.innerText = "I knew it! You're stuck with me forever, Phyo Thiri Khit! ❤️🥰";
-        }
+        If I could give you one thing, it would be the ability to
+        see yourself through my eyes, even for a moment. Then you
+        would understand how precious you are to me.
 
-        // Quiz Logic
-        function checkAnswer(isCorrect) {
-            const result = document.getElementById("quizResult");
-            result.style.display = "block";
-            if (isCorrect) {
-                result.innerText = "Correct! Your kindness and warmth completely won my heart ❤️";
-            } else {
-                result.innerText = "Close! But it's your amazing heart and how wonderfully you treat me! 💕";
-            }
-        }
+        Thank you for being you, my Bonnie.
+        This is our little world, and I hope it reminds you that
+        you are loved more than these words can ever explain.
 
-        // Matching Memory Puzzle Game Logic
-        const emojis = ['💖', '💖', '🌸', '🌸', '👑', '👑', '🧸', '🧸'];
-        let shuffled = emojis.sort(() => 0.5 - Math.random());
-        let selectedCards = [];
-        let matchedPairs = 0;
+        <div class="signature">Forever yours, ♡<br>AndreDash</div>
+      </article>
+    </div>
+  </div>
+</section>
 
-        const board = document.getElementById('puzzleBoard');
-        shuffled.forEach((emoji, index) => {
-            const card = document.createElement('div');
-            card.classList.add('puzzle-card');
-            card.dataset.emoji = emoji;
-            card.dataset.index = index;
-            card.innerText = '❓';
-            card.onclick = () => flipCard(card);
-            board.appendChild(card);
-        });
+<section id="quiz">
+  <div class="container">
+    <div class="center reveal">
+      <p class="eyebrow">Let's see how well you know us</p>
+      <h2 class="section-title">Our Little Love Quiz 🧸</h2>
+      <p class="section-subtitle">A few cute questions for my favorite person.</p>
+    </div>
+    <div class="card reveal" style="max-width:650px;margin:auto">
+      <div class="quiz-progress"><div id="quizProgress"></div></div>
+      <div id="quizContent">
+        <p id="quizCount" class="eyebrow">Question 1 of 5</p>
+        <h3 id="quizQuestion" class="quiz-question"></h3>
+        <div id="quizOptions" class="quiz-options"></div>
+        <p id="quizFeedback" aria-live="polite"></p>
+        <button class="btn" id="quizNext" onclick="nextQuestion()" disabled>Choose an answer ♡</button>
+      </div>
+      <div id="quizResult" class="center" hidden>
+        <div style="font-size:3rem">💖</div>
+        <h3 class="section-title">You finished!</h3>
+        <p id="quizScore"></p>
+        <p>There is no perfect score for love. The best part is making memories together.</p>
+        <button class="btn" onclick="restartQuiz()">Play again ♡</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function flipCard(card) {
-            if (selectedCards.length < 2 && !card.classList.contains('flipped')) {
-                card.classList.add('flipped');
-                card.innerText = card.dataset.emoji;
-                selectedCards.push(card);
+<section id="game">
+  <div class="container center">
+    <div class="reveal">
+      <p class="eyebrow">A tiny game for two hearts</p>
+      <h2 class="section-title">Match the Hearts 🎀</h2>
+      <p class="section-subtitle">Find all four matching pairs. Take your time, sweetheart.</p>
+    </div>
+    <div class="card reveal">
+      <div class="memory-grid" id="memoryGrid"></div>
+      <p id="gameStatus" aria-live="polite">Find all 4 pairs to win! 💗</p>
+      <button class="btn secondary small" onclick="newMemoryGame()">Shuffle again ↻</button>
+    </div>
+  </div>
+</section>
 
-                if (selectedCards.length === 2) {
-                    setTimeout(checkMatch, 600);
-                }
-            }
-        }
+<section id="music">
+  <div class="container">
+    <div class="center reveal">
+      <p class="eyebrow">Songs that feel like us</p>
+      <h2 class="section-title">Our Little Playlist 🎧</h2>
+      <p class="section-subtitle">Tap a song to find it on YouTube. Put on your headphones and think of me.</p>
+    </div>
+    <div class="music-list">
+      <div class="song reveal">
+        <div class="song-icon">🎵</div>
+        <div class="song-info"><strong>Until I Found You</strong><small>Stephen Sanchez</small></div>
+        <button class="btn small" onclick="openSong('Until I Found You Stephen Sanchez')">Play ↗</button>
+      </div>
+      <div class="song reveal delay1">
+        <div class="song-icon">💙</div>
+        <div class="song-info"><strong>Those Eyes</strong><small>New West</small></div>
+        <button class="btn small" onclick="openSong('Those Eyes New West')">Play ↗</button>
+      </div>
+      <div class="song reveal delay2">
+        <div class="song-icon">🌹</div>
+        <div class="song-info"><strong>Perfect</strong><small>Ed Sheeran</small></div>
+        <button class="btn small" onclick="openSong('Perfect Ed Sheeran')">Play ↗</button>
+      </div>
+      <div class="song reveal">
+        <div class="song-icon">💌</div>
+        <div class="song-info"><strong>Lover</strong><small>Taylor Swift</small></div>
+        <button class="btn small" onclick="openSong('Lover Taylor Swift')">Play ↗</button>
+      </div>
+      <div class="song reveal delay1">
+        <div class="song-icon">☁️</div>
+        <div class="song-info"><strong>Best Part</strong><small>Daniel Caesar ft. H.E.R.</small></div>
+        <button class="btn small" onclick="openSong('Best Part Daniel Caesar HER')">Play ↗</button>
+      </div>
+      <div class="song reveal delay2">
+        <div class="song-icon">🖤</div>
+        <div class="song-info"><strong>I Wanna Be Yours</strong><small>Arctic Monkeys</small></div>
+        <button class="btn small" onclick="openSong('I Wanna Be Yours Arctic Monkeys')">Play ↗</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function checkMatch() {
-            if (selectedCards[0].dataset.emoji === selectedCards[1].dataset.emoji) {
-                matchedPairs++;
-                if (matchedPairs === 4) {
-                    document.getElementById('puzzleWinMsg').style.display = 'block';
-                }
-            } else {
-                selectedCards[0].classList.remove('flipped');
-                selectedCards[1].classList.remove('flipped');
-                selectedCards[0].innerText = '❓';
-                selectedCards[1].innerText = '❓';
-            }
-            selectedCards = [];
-        }
-    </script>
+<section id="surprise">
+  <div class="container">
+    <div class="card surprise reveal">
+      <p class="eyebrow">One last little question</p>
+      <h2>Bonnie, can I keep choosing you? 💗</h2>
+      <p>Today, tomorrow, and through all the little chapters still waiting for us?</p>
+      <div class="surprise-buttons">
+        <button class="btn" onclick="answerSurprise(true)">Always yes ♡</button>
+        <button class="btn secondary" onclick="answerSurprise(false)">Give me a hug first 🧸</button>
+      </div>
+      <p id="surpriseMessage" aria-live="polite"></p>
+      <button class="btn secondary small" onclick="makeHearts(35)">Send a shower of hearts ✨</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>Made with all my love, just for Bonnie. ♡</p>
+  <p>Our story began on January 2, 2026 — and there's so much more to write.</p>
+</footer>
+
+<script>
+"use strict";
+
+// Smooth welcome action
+function enterOurWorld() {
+  makeHearts(12);
+  document.getElementById("story").scrollIntoView({ behavior: "smooth" });
+}
+
+// Mobile navigation
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
+
+menuButton.addEventListener("click", () => {
+  const opened = navLinks.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(opened));
+  menuButton.textContent = opened ? "×" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰";
+  });
+});
+
+// Live relationship counter
+// JavaScript months are zero-indexed: 0 = January.
+const startDate = new Date(2026, 0, 2, 0, 0, 0);
+
+function updateCounter() {
+  const now = new Date();
+  let elapsed = Math.max(0, now - startDate);
+  const totalSeconds = Math.floor(elapsed / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+
+  const note = document.getElementById("anniversaryNote");
+  if (now < startDate) {
+    const remaining = startDate - now;
+    note.textContent = "Our anniversary is almost here. 💗";
+  } else {
+    note.textContent = days === 0
+      ? "Our story has begun. Here's to every moment ahead. 💞"
+      : days + " days of our story — and counting. Here's to many more. 💞";
+  }
+}
+updateCounter();
+setInterval(updateCounter, 1000);
+
+// Floating hearts
+function makeHearts(amount = 12) {
+  const container = document.getElementById("hearts");
+  const symbols = ["💗", "💕", "♡", "💖", "✨", "💘"];
+
+  for (let i = 0; i < amount; i++) {
+    const heart = document.createElement("span");
+    heart.className = "heart-particle";
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = (3 + Math.random() * 94) + "%";
+    heart.style.bottom = (Math.random() * 25) + "%";
+    heart.style.fontSize = (16 + Math.random() * 23) + "px";
+    heart.style.animationDelay = (Math.random() * 1.1) + "s";
+    container.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+}
+
+// Reveal sections as they enter view
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(element => revealObserver.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add("visible"));
+}
+
+// Photo gallery
+function showPhoto(button) {
+  const img = button.querySelector("img");
+  if (!img || !img.complete || img.naturalWidth === 0) {
+    alert("Add your photo file to the same folder as index.html first. 💗");
+    return;
+  }
+  document.getElementById("lightboxImage").src = img.src;
+  document.getElementById("lightbox").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+function closePhoto() {
+  document.getElementById("lightbox").classList.remove("show");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closePhoto();
+});
+
+function imageFallback(img) {
+  img.style.objectFit = "contain";
+  img.alt = "Photo not added yet — replace this filename with your photo";
+  img.src = "data:image/svg+xml," + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500"><defs><linearGradient id="g"><stop stop-color="#ffe5f0"/><stop offset="1" stop-color="#dff4ff"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><text x="50%" y="46%" text-anchor="middle" font-size="60">♡</text><text x="50%" y="58%" text-anchor="middle" font-size="19" fill="#805c7a">Your photo here</text></svg>'
+  );
+}
+
+// Animated love letter
+function toggleLetter() {
+  const envelope = document.getElementById("envelope");
+  const letter = document.getElementById("loveLetter");
+  const button = document.getElementById("openLetterButton");
+  const isOpen = letter.classList.toggle("show");
+
+  envelope.classList.toggle("open", isOpen);
+  button.textContent = isOpen ? "Close my letter ♡" : "Open my letter 💗";
+
+  if (isOpen) {
+    makeHearts(12);
+    letter.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}
+
+// Interactive love quiz
+const quizQuestions = [
+  {
+    question: "When did our love story begin?",
+    options: ["February 14, 2026", "January 2, 2026", "December 25, 2025", "March 1, 2026"],
+    correct: 1,
+    message: "January 2, 2026 — our special beginning! 💗"
+  },
+  {
+    question: "Who is this little website made for?",
+    options: ["A stranger", "My teacher", "My Bonnie", "My cat"],
+    correct: 2,
+    message: "Of course, it's for Bonnie! 🧸"
+  },
+  {
+    question: "What makes a relationship stronger?",
+    options: ["Honesty and kindness", "Never talking", "Always being right", "Keeping secrets"],
+    correct: 0,
+    message: "Honesty, kindness, trust, and communication. 💞"
+  },
+  {
+    question: "What's one of the best things about love?",
+    options: ["Winning arguments", "Being a team", "Never apologizing", "Being perfect"],
+    correct: 1,
+    message: "Being a team, especially on hard days. ♡"
+  },
+  {
+    question: "What's my favorite plan for our future?",
+    options: ["Stop making memories", "Forget the good times", "Keep growing together", "Never laugh again"],
+    correct: 2,
+    message: "Keep growing together, one beautiful memory at a time! 💖"
+  }
+];
+
+let quizIndex = 0;
+let quizScore = 0;
+let quizAnswered = false;
+
+function renderQuestion() {
+  quizAnswered = false;
+  const q = quizQuestions[quizIndex];
+
+  document.getElementById("quizCount").textContent =
+    "Question " + (quizIndex + 1) + " of " + quizQuestions.length;
+  document.getElementById("quizQuestion").textContent = q.question;
+  document.getElementById("quizProgress").style.width =
+    (quizIndex / quizQuestions.length * 100) + "%";
+  document.getElementById("quizFeedback").textContent = "";
+
+  const options = document.getElementById("quizOptions");
+  options.innerHTML = "";
+
+  q.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.className = "quiz-option";
+    button.textContent = option;
+    button.addEventListener("click", () => selectAnswer(index));
+    options.appendChild(button);
+  });
+
+  const next = document.getElementById("quizNext");
+  next.disabled = true;
+  next.textContent = "Choose an answer ♡";
+}
+
+function selectAnswer(index) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+
+  const q = quizQuestions[quizIndex];
+  const buttons = document.querySelectorAll(".quiz-option");
+  buttons.forEach(button => button.disabled = true);
+
+  if (index === q.correct) {
+    quizScore++;
+    buttons[index].classList.add("correct");
+    document.getElementById("quizFeedback").textContent = "That's right! " + q.message;
+    makeHearts(5);
+  } else {
+    buttons[index].classList.add("wrong");
+    buttons[q.correct].classList.add("correct");
+    document.getElementById("quizFeedback").textContent = q.message;
+  }
+
+  const next = document.getElementById("quizNext");
+  next.disabled = false;
+  next.textContent = quizIndex === quizQuestions.length - 1
+    ? "See my result ♡"
+    : "Next question →";
+}
+
+function nextQuestion() {
+  if (!quizAnswered) return;
+
+  quizIndex++;
+  if (quizIndex >= quizQuestions.length) {
+    document.getElementById("quizContent").hidden = true;
+    document.getElementById("quizResult").hidden = false;
+    document.getElementById("quizProgress").style.width = "100%";
+    document.getElementById("quizScore").textContent =
+      "You got " + quizScore + " out of " + quizQuestions.length +
+      ". The sweetest part is that we get to keep learning about each other. 💗";
+    makeHearts(18);
+  } else {
+    renderQuestion();
+  }
+}
+
+function restartQuiz() {
+  quizIndex = 0;
+  quizScore = 0;
+  document.getElementById("quizContent").hidden = false;
+  document.getElementById("quizResult").hidden = true;
+  renderQuestion();
+}
+renderQuestion();
+
+// Matching game
+const symbols = ["💗", "🌷", "🧸", "💌"];
+let memoryDeck = [];
+let flippedCards = [];
+let matchedPairs = 0;
+let lockBoard = false;
+let gameVersion = 0;
+
+function newMemoryGame() {
+  gameVersion++;
+  matchedPairs = 0;
+  flippedCards = [];
+  lockBoard = false;
+
+  memoryDeck = [...symbols, ...symbols]
+    .map((symbol, index) => ({ symbol, id: index }))
+    .sort(() => Math.random() - 0.5);
+
+  const grid = document.getElementById("memoryGrid");
+  grid.innerHTML = "";
+
+  memoryDeck.forEach((card, index) => {
+    const button = document.createElement("button");
+    button.className = "memory-card";
+    button.textContent = "♡";
+    button.setAttribute("aria-label", "Hidden card");
+    button.dataset.symbol = card.symbol;
+    button.dataset.index = index;
+    button.addEventListener("click", () => flipCard(button));
+    grid.appendChild(button);
+  });
+
+  document.getElementById("gameStatus").textContent = "Find all 4 pairs to win! 💗";
+}
+
+function flipCard(button) {
+  if (lockBoard || button.disabled || button.classList.contains("matched") ||
+      flippedCards.includes(button)) return;
+
+  button.textContent = button.dataset.symbol;
+  button.setAttribute("aria-label", button.dataset.symbol);
+  flippedCards.push(button);
+
+  if (flippedCards.length === 2) {
+    const [first, second] = flippedCards;
+
+    if (first.dataset.symbol === second.dataset.symbol) {
+      first.classList.add("matched");
+      second.classList.add("matched");
+      first.disabled = true;
+      second.disabled = true;
+      matchedPairs++;
+      flippedCards = [];
+
+      if (matchedPairs === symbols.length) {
+        document.getElementById("gameStatus").textContent =
+          "You found every pair! Sending you a big hug. 💖";
+        makeHearts(15);
+      } else {
+        document.getElementById("gameStatus").textContent =
+          "A match! " + matchedPairs + " of " + symbols.length + " pairs found. ✨";
+      }
+    } else {
+      lockBoard = true;
+      const version = gameVersion;
+      document.getElementById("gameStatus").textContent = "Not a match — try again, sweetheart! 💕";
+
+      setTimeout(() => {
+        if (version !== gameVersion) return;
+        first.textContent = "♡";
+        second.textContent = "♡";
+        first.setAttribute("aria-label", "Hidden card");
+        second.setAttribute("aria-label", "Hidden card");
+        flippedCards = [];
+        lockBoard = false;
+      }, 800);
+    }
+  }
+}
+newMemoryGame();
+
+// Song buttons open YouTube search results
+function openSong(songName) {
+  const url = "https://www.youtube.com/results?search_query=" + encodeURIComponent(songName);
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+// Final romantic interaction
+function answerSurprise(yes) {
+  const message = document.getElementById("surpriseMessage");
+
+  if (yes) {
+    message.textContent = "Then here's my promise: I'll keep showing up with kindness, honesty, patience, and love. One day at a time, Bonnie. 💗";
+    makeHearts(28);
+  } else {
+    message.textContent = "Hug incoming! 🧸 Come here, sweetheart. No rush, just love, warmth, and the biggest cuddle. 💕";
+    makeHearts(18);
+  }
+}
+</script>
 </body>
 </html>
