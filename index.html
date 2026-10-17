@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#ffe5f0">
+<meta name="description" content="A little romantic website made with love for Bonnie.">
+<meta name="color-scheme" content="light">
 <title>For Bonnie ♡ Forever Yours</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +29,7 @@ body {
   margin: 0;
   font-family: "DM Sans", sans-serif;
   color: var(--ink);
-  background: linear-gradient(135deg, #fff5fa, #eff9ff, #fff0f7);
+  background: radial-gradient(ellipse at top left, #fff0f7 0%, transparent 42%), linear-gradient(135deg, #fff9fc, #f0f8ff 55%, #fff1f7);
   background-size: 250% 250%;
   animation: backgroundShift 18s ease infinite;
   overflow-x: hidden;
@@ -132,7 +134,7 @@ button:focus-visible, a:focus-visible {
 }
 
 section { padding: 75px 6%; }
-.container { max-width: 1000px; margin: auto; }
+.container { max-width: 1080px; margin: auto; }
 .center { text-align: center; }
 .eyebrow {
   text-transform: uppercase;
@@ -190,7 +192,7 @@ section { padding: 75px 6%; }
 .btn.small { padding: 10px 17px; font-size: .88rem; }
 
 .hero {
-  min-height: 88vh;
+  min-height: min(88vh, 900px);
   display: grid;
   place-items: center;
   text-align: center;
@@ -268,7 +270,7 @@ section { padding: 75px 6%; }
   border-radius: 15px;
   box-shadow: var(--shadow);
   transform: rotate(var(--angle, 0deg));
-  transition: transform .35s, box-shadow .35s;
+  transition: transform .35s, box-shadow .35s; cursor: zoom-in;
 }
 .photo:hover { transform: rotate(0) translateY(-8px) scale(1.025); box-shadow: 0 18px 35px #bd80a638; }
 .photo img {
@@ -449,6 +451,9 @@ footer { padding: 30px 6%; text-align: center; color: #977e99; font-size: .85rem
   .nav-links.open { display: flex; }
   section { padding: 58px 5%; }
   .hero { min-height: 82vh; }
+  .hero h1 { letter-spacing: -1px; }
+  .card { border-radius: 22px; }
+  .nav-links a { padding: 5px 0; }
   .counter-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
   .love-layout { grid-template-columns: 1fr; }
@@ -471,11 +476,47 @@ footer { padding: 30px 6%; text-align: center; color: #977e99; font-size: .85rem
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Background music player */
+.music-dock {
+  position: fixed; right: 18px; bottom: 18px; z-index: 30;
+  display: flex; align-items: center; gap: 11px; padding: 10px 13px;
+  max-width: calc(100vw - 36px); border: 1px solid #ffffffd9;
+  border-radius: 999px; background: #fffafde8; color: var(--ink);
+  box-shadow: 0 10px 32px #8d5a8526; backdrop-filter: blur(16px);
+}
+.music-dock .music-disc {
+  width: 36px; height: 36px; flex: 0 0 36px; display: grid; place-items: center;
+  border-radius: 50%; background: linear-gradient(135deg, #ff9fc6, #c8b8ff);
+}
+.music-dock .music-copy { min-width: 0; }
+.music-dock strong { display: block; font-size: .78rem; }
+.music-dock small { display: block; color: #927b94; font-size: .68rem; }
+.music-dock button {
+  border: 0; border-radius: 999px; padding: 9px 12px; color: white;
+  background: linear-gradient(110deg, #e879aa, #9d8ce7); font-weight: 700;
+  white-space: nowrap;
+}
+#youtubePlayer { position: fixed; width: 1px; height: 1px; left: -10px; bottom: 0; opacity: .01; pointer-events: none; }
+@media (max-width: 420px) {
+  .music-dock { right: 10px; bottom: 10px; gap: 8px; padding: 8px 10px; }
+  .music-dock .music-copy { max-width: 105px; }
+  .music-dock button { padding: 8px 10px; font-size: .78rem; }
+}
+
 </style>
 </head>
 
 <body>
 <div id="hearts" aria-hidden="true"></div>
+
+<div class="music-dock" role="region" aria-label="Background music">
+  <div class="music-disc" aria-hidden="true">♫</div>
+  <div class="music-copy"><strong>Our love song</strong><small id="musicStatus">Tap to play ♡</small></div>
+  <button id="musicToggle" type="button" aria-pressed="false">Play ♫</button>
+</div>
+<iframe id="youtubePlayer" title="Background love song" src="https://www.youtube-nocookie.com/embed/qUSOwT5YEno?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=qUSOwT5YEno&controls=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
 
 <nav class="nav">
   <a class="logo" href="#home">Bonnie ♡ Forever</a>
@@ -558,8 +599,8 @@ footer { padding: 30px 6%; text-align: center; color: #977e99; font-size: .85rem
         <span>One more forever</span>
       </button>
       <button class="photo reveal delay2" style="--angle:1deg" onclick="showPhoto(this)">
-        <img src="our-photo-6.jpg" alt="Add another couple photo" loading="lazy" onerror="imageFallback(this)">
-        <span>More memories to come</span>
+        <img src="IMG_2897.jpeg" alt="Our sixth memory" loading="lazy" onerror="imageFallback(this)">
+        <span>My favorite chapter ♡</span>
       </button>
     </div>
     <p class="center" style="font-size:.82rem;color:#927b94;margin-top:18px">
@@ -727,6 +768,44 @@ footer { padding: 30px 6%; text-align: center; color: #977e99; font-size: .85rem
 
 <script>
 "use strict";
+
+
+// Background love song: muted autoplay is attempted; tap enables sound because
+// iOS/Safari and most browsers block audible autoplay without a user gesture.
+const musicFrame = document.getElementById("youtubePlayer");
+const musicToggle = document.getElementById("musicToggle");
+const musicStatus = document.getElementById("musicStatus");
+let musicPlaying = false;
+function sendYouTubeCommand(func, args = []) {
+  if (!musicFrame || !musicFrame.contentWindow) return;
+  musicFrame.contentWindow.postMessage(JSON.stringify({
+    event: "command", func, args
+  }), "*");
+}
+function setMusicPlaying(playing) {
+  musicPlaying = playing;
+  musicToggle.textContent = playing ? "Pause Ⅱ" : "Play ♫";
+  musicToggle.setAttribute("aria-pressed", String(playing));
+  musicStatus.textContent = playing ? "Playing for you ♡" : "Paused";
+}
+musicToggle.addEventListener("click", () => {
+  if (!musicPlaying) {
+    sendYouTubeCommand("unMute");
+    sendYouTubeCommand("setVolume", [55]);
+    sendYouTubeCommand("playVideo");
+    setMusicPlaying(true);
+  } else {
+    sendYouTubeCommand("pauseVideo");
+    setMusicPlaying(false);
+  }
+});
+// Ask YouTube to start muted automatically; sound starts after the visitor taps Play.
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    sendYouTubeCommand("mute");
+    sendYouTubeCommand("playVideo");
+  }, 1200);
+});
 
 // Smooth welcome action
 function enterOurWorld() {
